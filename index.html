@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashfuse Labs | Progressive Web Apps</title>
     
+    <!-- Tab Logo / Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    
     <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,7 +117,6 @@
                     <button onclick="scrollToSection('projects')" class="hover:text-red-600 dark:hover:text-red-500 transition-colors">Apps</button>
                     <button onclick="scrollToSection('capabilities')" class="hover:text-red-600 dark:hover:text-red-500 transition-colors">Edge</button>
                     <button onclick="scrollToSection('about')" class="hover:text-red-600 dark:hover:text-red-500 transition-colors">About</button>
-                    <button onclick="scrollToSection('skills')" class="hover:text-red-600 dark:hover:text-red-500 transition-colors">Stack</button>
                     <button onclick="scrollToSection('contact')" class="text-slate-900 dark:text-white font-semibold hover:text-red-600 dark:hover:text-red-500 transition-colors">Contact</button>
                     
                     <button class="theme-toggle p-2 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all" aria-label="Toggle Dark Mode">
@@ -138,49 +141,48 @@
 
         <!-- Mobile Nav Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-neutral-900 border-t border-slate-100 dark:border-neutral-800 shadow-xl absolute w-full transition-colors">
-            <div class="px-4 py-6 space-y-2 font-medium text-slate-500 dark:text-neutral-400">
+            <div class="px-4 py-4 space-y-1 font-medium text-slate-500 dark:text-neutral-400">
                 <button onclick="scrollToSection('home'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">Home</button>
                 <button onclick="scrollToSection('projects'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">Apps</button>
                 <button onclick="scrollToSection('capabilities'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">Capabilities</button>
                 <button onclick="scrollToSection('about'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">About</button>
-                <button onclick="scrollToSection('skills'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">Stack</button>
-                <button onclick="scrollToSection('contact'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-500 mt-4 transition-all">Contact</button>
+                <button onclick="scrollToSection('contact'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-500 mt-2 transition-all">Contact</button>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-24 px-4 max-w-7xl mx-auto flex flex-col justify-center min-h-[90vh] overflow-hidden">
+    <section id="home" class="relative pt-28 pb-16 md:pt-36 md:pb-20 px-4 max-w-7xl mx-auto flex flex-col justify-center min-h-[85vh] overflow-hidden">
         <div id="hero-blob-1" class="absolute top-1/4 right-10 md:right-32 w-64 h-64 md:w-[400px] md:h-[400px] bg-red-300 dark:bg-red-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-30 dark:opacity-20 -z-10 transition-transform duration-100 ease-out"></div>
         <div id="hero-blob-2" class="absolute bottom-1/4 left-5 md:left-20 w-48 h-48 md:w-[300px] md:h-[300px] bg-red-200 dark:bg-red-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-40 dark:opacity-20 -z-10 transition-transform duration-100 ease-out"></div>
 
         <!-- 2-Column Hero Layout -->
-        <div class="relative z-10 w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+        <div class="relative z-10 w-full flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
             
             <!-- Left: Text Content -->
             <div class="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
-                <h1 class="text-5xl md:text-[4.5rem] lg:text-[5rem] font-bold tracking-tight mb-8 text-slate-900 dark:text-white leading-[1.1]">
+                <h1 class="text-5xl md:text-[4.5rem] lg:text-[5rem] font-bold tracking-tight mb-6 text-slate-900 dark:text-white leading-[1.1]">
                     We build <br class="hidden md:block"/>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-500 dark:to-red-800">Progressive Web Apps</span> <br/>
                     that flow seamlessly.
                 </h1>
                 
-                <p class="text-lg md:text-xl text-slate-600 dark:text-neutral-400 mb-12 max-w-xl leading-relaxed">
+                <p class="text-lg md:text-xl text-slate-600 dark:text-neutral-400 mb-8 max-w-xl leading-relaxed">
                     Engineering high-performance applications, minimal interfaces, and robust Progressive Web Apps designed for the modern web.
                 </p>
                 
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <button onclick="scrollToSection('projects')" class="bg-red-600 text-white rounded-full px-8 py-4 font-bold flex items-center gap-2 shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:bg-red-700 hover:-translate-y-1 transition-all group">
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
+                    <button onclick="scrollToSection('projects')" class="bg-red-600 text-white rounded-full px-8 py-3.5 md:py-4 font-bold flex items-center gap-2 shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:bg-red-700 hover:-translate-y-1 transition-all group">
                         Explore Apps <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                     </button>
-                    <button onclick="scrollToSection('about')" class="bg-white dark:bg-neutral-900 text-slate-900 dark:text-white rounded-full px-8 py-4 font-bold flex items-center gap-2 border border-slate-200 dark:border-neutral-800 hover:bg-slate-50 dark:hover:bg-neutral-800 hover:-translate-y-1 transition-all">
+                    <button onclick="scrollToSection('about')" class="bg-white dark:bg-neutral-900 text-slate-900 dark:text-white rounded-full px-8 py-3.5 md:py-4 font-bold flex items-center gap-2 border border-slate-200 dark:border-neutral-800 hover:bg-slate-50 dark:hover:bg-neutral-800 hover:-translate-y-1 transition-all">
                         Meet the Developer
                     </button>
                 </div>
             </div>
 
             <!-- Right: Storyset Illustration -->
-            <div class="flex-1 w-full max-w-[350px] md:max-w-[500px] flex justify-center items-center drop-shadow-2xl animate-float">
+            <div class="flex-1 w-full max-w-[300px] md:max-w-[450px] flex justify-center items-center drop-shadow-2xl animate-float">
                 <img src="mobile-testing.svg" 
                      onerror="this.src='https://illustrations.popsy.co/red/app-development.svg'" 
                      alt="Mobile Testing Illustration" 
@@ -191,15 +193,15 @@
     </section>
 
     <!-- PROJECTS SECTION (Product Cards) -->
-    <section id="projects" class="py-24 px-4 max-w-7xl mx-auto relative">
+    <section id="projects" class="py-16 md:py-24 px-4 max-w-7xl mx-auto relative">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-400 dark:bg-red-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[150px] opacity-20 -z-10 pointer-events-none"></div>
 
-        <div class="mb-16 md:mb-20 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">App Showcase</h2>
+        <div class="mb-12 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">App Showcase</h2>
             <p class="text-slate-600 dark:text-neutral-400 text-lg">Featured projects crafted with precision.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative z-10 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 max-w-5xl mx-auto">
             
             <!-- App 1: Tally Pro -->
             <div class="group flex flex-col bg-white dark:bg-neutral-900 rounded-[2rem] border border-slate-200 dark:border-neutral-800 overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 dark:hover:shadow-red-900/20 transition-all duration-300 hover:-translate-y-2">
@@ -214,11 +216,11 @@
                     </div>
                 </div>
                 <div class="p-6 md:p-8 flex flex-col h-full">
-                    <h3 class="text-2xl font-bold mb-3 text-slate-900 dark:text-white">Tally Pro</h3>
+                    <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Tally Pro</h3>
                     <p class="text-slate-600 dark:text-neutral-400 mb-6 flex-grow leading-relaxed text-sm">
                         A sleek Progressive Web App (PWA) featuring custom timers, offline functionality, and intuitive touch controls.
                     </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-2 mb-6">
                         <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">PWA</span>
                         <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">Tailwind</span>
                         <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">Storage</span>
@@ -243,11 +245,11 @@
                     </div>
                 </div>
                 <div class="p-6 md:p-8 flex flex-col h-full">
-                    <h3 class="text-2xl font-bold mb-3 text-slate-900 dark:text-white">EV Studio Battery Maker</h3>
+                    <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">EV Studio Battery Maker</h3>
                     <p class="text-slate-600 dark:text-neutral-400 mb-6 flex-grow leading-relaxed text-sm">
                         A specialized web application for configuring and designing electric vehicle battery packs with interactive UI tools.
                     </p>
-                    <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-2 mb-6">
                         <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">HTML/CSS</span>
                         <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">Interactive UI</span>
                     </div>
@@ -262,12 +264,12 @@
     </section>
 
     <!-- CORE CAPABILITIES (Spotlight Section) -->
-    <section id="capabilities" class="py-12 px-4 max-w-7xl mx-auto relative z-10">
-        <div class="relative w-full overflow-hidden rounded-[2.5rem] px-6 py-12 md:px-12 md:py-16 bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 shadow-xl shadow-slate-200/50 dark:shadow-black/50 transition-colors">
+    <section id="capabilities" class="py-16 md:py-24 px-4 max-w-7xl mx-auto relative z-10">
+        <div class="relative w-full overflow-hidden rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-12 bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 shadow-xl shadow-slate-200/50 dark:shadow-black/50 transition-colors">
             
             <div class="pointer-events-none absolute inset-0 dark:hidden opacity-50" style="background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px); background-size: 24px 24px;"></div>
 
-            <div class="relative mb-12 flex flex-col gap-2 text-center md:text-left">
+            <div class="relative mb-10 flex flex-col gap-2 text-center md:text-left">
                 <p class="font-bold text-xs text-red-600 dark:text-red-500 uppercase tracking-[0.2em]">The Flashfuse Edge</p>
                 <h2 class="font-bold text-3xl md:text-4xl text-slate-900 tracking-tight dark:text-white">Why use our tools</h2>
             </div>
@@ -279,11 +281,11 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 px-4 max-w-7xl mx-auto">
-        <div class="bg-white dark:bg-neutral-900 rounded-[2.5rem] p-10 md:p-16 border border-slate-200 dark:border-neutral-800 flex flex-col md:flex-row items-center gap-12 shadow-xl shadow-slate-200/50 dark:shadow-black/50 transition-colors">
+    <section id="about" class="py-16 md:py-24 px-4 max-w-7xl mx-auto">
+        <div class="bg-white dark:bg-neutral-900 rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-12 border border-slate-200 dark:border-neutral-800 flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-xl shadow-slate-200/50 dark:shadow-black/50 transition-colors">
             
             <!-- PROFILE IMAGE -->
-            <div class="w-32 h-32 md:w-48 md:h-48 rounded-full flex-shrink-0 shadow-xl border-4 border-white dark:border-neutral-800 overflow-hidden relative group">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full flex-shrink-0 shadow-xl border-4 border-white dark:border-neutral-800 overflow-hidden relative group">
                 <img src="kunal.jpg" 
                      onerror="this.src='https://ui-avatars.com/api/?name=Kunal+Urkude&background=ef4444&color=fff&size=256'" 
                      alt="Kunal Urkude" 
@@ -291,13 +293,13 @@
             </div>
 
             <div class="text-center md:text-left">
-                <h2 class="text-sm font-bold text-red-500 tracking-widest uppercase mb-2">Lead Developer</h2>
+                <h2 class="text-sm font-bold text-red-500 tracking-widest uppercase mb-1.5">Lead Developer</h2>
                 <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Kunal Urkude</h3>
-                <p class="text-slate-600 dark:text-neutral-400 text-lg leading-relaxed max-w-2xl mb-8">
+                <p class="text-slate-600 dark:text-neutral-400 md:text-lg leading-relaxed max-w-2xl mb-6">
                     I am the founder and lead engineer at Flashfuse Labs. My philosophy is simple: technology should get out of the user's way. I specialize in crafting clean, intuitive, and lightning-fast web applications using React and modern frontend architectures. Every app showcased here represents a commitment to elegant code and neuminimalist design.
                 </p>
                 
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-8">
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-6">
                     <a href="https://kunalurkude.super.site" target="_blank" rel="noreferrer" class="p-3 bg-slate-50 dark:bg-neutral-800 text-slate-600 dark:text-neutral-300 rounded-full hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-600 dark:hover:text-red-500 transition-colors shadow-sm dark:shadow-none" aria-label="Personal Portfolio">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
                     </a>
@@ -319,27 +321,10 @@
         </div>
     </section>
 
-    <!-- SKILLS SECTION (Marquee Capsules) -->
-    <section id="skills" class="py-24 max-w-full overflow-hidden relative z-10 border-y border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
-        <div class="max-w-7xl mx-auto px-4 mb-12 text-center">
-            <p class="font-bold text-xs text-red-600 dark:text-red-500 uppercase tracking-[0.2em] mb-2">Tech Stack</p>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">The Engine Behind the Apps</h2>
-        </div>
-
-        <div class="relative w-full flex overflow-hidden">
-            <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white dark:from-neutral-900 to-transparent z-10 pointer-events-none"></div>
-            <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white dark:from-neutral-900 to-transparent z-10 pointer-events-none"></div>
-
-            <div class="animate-marquee flex gap-4 md:gap-6 py-4" id="marquee-container">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-    </section>
-
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-32 px-4 max-w-3xl mx-auto text-center">
+    <section id="contact" class="py-20 md:py-28 px-4 max-w-3xl mx-auto text-center">
         <!-- Storyset Illustration for Contact/Message -->
-        <div class="w-48 h-48 mx-auto flex items-center justify-center mb-6 animate-float">
+        <div class="w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center mb-4 animate-float">
             <!-- Download a generic email/contact SVG from storyset or use this fallback -->
             <img src="assets/contact.svg" 
                  onerror="this.src='https://illustrations.popsy.co/red/email.svg'" 
@@ -347,13 +332,19 @@
                  class="w-full h-auto drop-shadow-xl" />
         </div>
 
-        <h3 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Ready to build something?</h3>
-        <p class="text-lg text-slate-600 dark:text-neutral-400 mb-10 leading-relaxed">
+        <h3 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Ready to build something?</h3>
+        <p class="text-slate-600 dark:text-neutral-400 mb-8 md:text-lg leading-relaxed">
             Whether you have a fully formed project or just an idea, I'm currently taking on new clients. Let's create an elegant, high-performing app together.
         </p>
-        <a href="mailto:hello@flashfuselabs.com" class="inline-flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-full font-medium shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:bg-red-700 hover:-translate-y-1 transition-all">
-            Get in Touch
-        </a>
+        
+        <div class="flex flex-col items-center justify-center gap-4">
+            <a href="mailto:kunalurkudeatwork@gmail.com" class="inline-flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-full font-medium shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:bg-red-700 hover:-translate-y-1 transition-all">
+                Get in Touch
+            </a>
+            <a href="mailto:kunalurkudeatwork@gmail.com" class="text-slate-500 dark:text-neutral-400 hover:text-red-600 dark:hover:text-red-500 transition-colors text-sm font-medium">
+                kunalurkudeatwork@gmail.com
+            </a>
+        </div>
     </section>
 
     <!-- FOOTER -->
@@ -375,20 +366,11 @@
             { icon: 'smartphone', title: "Cross-Platform", description: "Works perfectly on any device. Mobile, tablet, or desktop—just open your browser and you're good to go.", color: "#f43f5e" }
         ];
 
-        const techStack = [
-            { icon: 'code', title: "React & Next.js", color: "#61dafb" },
-            { icon: 'layout', title: "Tailwind CSS", color: "#38bdf8" },
-            { icon: 'smartphone', title: "Progressive Web Apps", color: "#8b5cf6" },
-            { icon: 'cloud', title: "API Integrations", color: "#10b981" },
-            { icon: 'cpu', title: "Modern JavaScript", color: "#f59e0b" },
-            { icon: 'zap', title: "Performance Tuning", color: "#ef4444" }
-        ];
-
         // 2. DOM Generation (Capabilities Spotlight Cards)
         const capGrid = document.getElementById('capabilities-grid');
         capabilities.forEach(item => {
             const card = document.createElement('div');
-            card.className = "spotlight-card group relative flex flex-col gap-5 overflow-hidden rounded-3xl border p-6 md:p-8 border-slate-200 bg-white shadow-lg shadow-slate-200/40 dark:border-white/10 dark:bg-white/5 dark:shadow-none transition-colors hover:border-slate-300 dark:hover:border-white/20";
+            card.className = "spotlight-card group relative flex flex-col gap-4 overflow-hidden rounded-3xl border p-6 border-slate-200 bg-white shadow-lg shadow-slate-200/40 dark:border-white/10 dark:bg-white/5 dark:shadow-none transition-colors hover:border-slate-300 dark:hover:border-white/20";
             card.style.perspective = "900px";
             card.style.setProperty('--card-color', item.color);
             
@@ -398,7 +380,7 @@
                 <div class="shimmer-sweep pointer-events-none absolute inset-y-0 left-0 w-[55%] -translate-x-full -skew-x-12 transition-transform duration-700 ease-out group-hover:translate-x-[280%] z-0"></div>
                 
                 <div class="spotlight-content relative z-10 flex flex-col gap-2 h-full">
-                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl mb-3" style="background: ${item.color}18; box-shadow: inset 0 0 0 1px ${item.color}30; color: ${item.color};">
+                    <div class="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-xl md:rounded-2xl mb-2 md:mb-3" style="background: ${item.color}18; box-shadow: inset 0 0 0 1px ${item.color}30; color: ${item.color};">
                         <i data-lucide="${item.icon}" class="w-5 h-5 stroke-[2]"></i>
                     </div>
                     <h3 class="font-bold text-lg text-slate-900 tracking-tight dark:text-white">${item.title}</h3>
@@ -428,22 +410,6 @@
             });
 
             capGrid.appendChild(card);
-        });
-
-        // 3. DOM Generation (Marquee)
-        const marqueeContainer = document.getElementById('marquee-container');
-        const repeatedStack = [...techStack, ...techStack, ...techStack]; 
-        
-        repeatedStack.forEach(item => {
-            const el = document.createElement('div');
-            el.className = "flex items-center gap-3 px-6 py-4 bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 rounded-full shadow-sm whitespace-nowrap hover:border-red-500 dark:hover:border-red-500 transition-colors cursor-default";
-            el.innerHTML = `
-                <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: ${item.color}15; color: ${item.color}">
-                    <i data-lucide="${item.icon}" class="w-4 h-4 stroke-[2.5]"></i>
-                </div>
-                <span class="font-semibold text-sm md:text-base text-slate-800 dark:text-neutral-200">${item.title}</span>
-            `;
-            marqueeContainer.appendChild(el);
         });
 
         // Initialize Lucide Icons
