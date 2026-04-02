@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kunalurkude.github.io/flashfuse/sitemap.xml
