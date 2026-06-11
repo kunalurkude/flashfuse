@@ -2,12 +2,14 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STRICT MOBILE VIEWPORT: Prevents accidental zooming on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Flashfuse Labs | Progressive Web Apps</title>
     
-    <!-- Tab Logo / Favicon -->
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <!-- Tab Logo / Favicon (Explicit pathing to fix loading loop) -->
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="apple-touch-icon" href="./logo.png">
+    <link rel="shortcut icon" href="./logo.png">
 
     <!-- ========================================== -->
     <!--                 SEO BRAIN                  -->
@@ -15,24 +17,25 @@
     <meta name="description" content="Kunal Urkude is the lead developer and founder of Flashfuse Labs. We build high-performance, minimalist Progressive Web Apps (PWAs) and scalable web solutions.">
     <meta name="keywords" content="Kunal Urkude, Flashfuse Labs, React Developer, Progressive Web Apps, PWA Developer, Frontend Engineer, Web Development">
     <meta name="author" content="Kunal Urkude">
-    <link rel="canonical" href="https://kunalurkude.github.io/portfolio/">
+    <!-- URLs updated to point to /flashfuse/ -->
+    <link rel="canonical" href="https://kunalurkude.github.io/flashfuse/">
 
-    <!-- Google Site Verification (Alternative Meta Tag Method) -->
+    <!-- Google Site Verification -->
     <meta name="google-site-verification" content="7dd0148a682d8e17" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kunalurkude.github.io/portfolio/">
+    <meta property="og:url" content="https://kunalurkude.github.io/flashfuse/">
     <meta property="og:title" content="Flashfuse Labs | Progressive Web Apps by Kunal Urkude">
     <meta property="og:description" content="Engineering high-performance applications, minimal interfaces, and robust Progressive Web Apps designed for the modern web.">
-    <meta property="og:image" content="https://kunalurkude.github.io/portfolio/logo.png">
+    <meta property="og:image" content="https://kunalurkude.github.io/flashfuse/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kunalurkude.github.io/portfolio/">
+    <meta property="twitter:url" content="https://kunalurkude.github.io/flashfuse/">
     <meta property="twitter:title" content="Flashfuse Labs | Progressive Web Apps">
     <meta property="twitter:description" content="Engineering high-performance applications, minimal interfaces, and robust Progressive Web Apps designed for the modern web.">
-    <meta property="twitter:image" content="https://kunalurkude.github.io/portfolio/logo.png">
+    <meta property="twitter:image" content="https://kunalurkude.github.io/flashfuse/logo.png">
     <!-- ========================================== -->
     
     <!-- Google Fonts: Montserrat -->
@@ -57,9 +60,6 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Lottie Player for Animations -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <style>
         /* Custom Animations & Effects */
@@ -113,9 +113,9 @@
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center cursor-pointer group gap-3" onclick="scrollToSection('home')">
                     
-                    <!-- BRAND LOGO -->
-                    <img src="logo.png" 
-                         onerror="this.src='https://ui-avatars.com/api/?name=FL&background=ef4444&color=fff&rounded=true&bold=true'" 
+                    <!-- BRAND LOGO (this.onerror=null added to prevent loops) -->
+                    <img src="./logo.png" 
+                         onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=FL&background=ef4444&color=fff&rounded=true&bold=true'" 
                          alt="Flashfuse Logo" 
                          class="w-10 h-10 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-sm rounded-full object-cover" />
                     
@@ -196,8 +196,8 @@
 
             <!-- Right: Storyset Illustration -->
             <div class="flex-1 w-full max-w-[300px] md:max-w-[450px] flex justify-center items-center drop-shadow-2xl animate-float">
-                <img src="mobile-testing.svg" 
-                     onerror="this.src='https://illustrations.popsy.co/red/app-development.svg'" 
+                <img src="./mobile-testing.svg" 
+                     onerror="this.onerror=null; this.src='https://illustrations.popsy.co/red/app-development.svg'" 
                      alt="Mobile Testing Illustration" 
                      class="w-full h-auto" />
             </div>
@@ -299,8 +299,8 @@
             
             <!-- PROFILE IMAGE -->
             <div class="w-32 h-32 md:w-40 md:h-40 rounded-full flex-shrink-0 shadow-xl border-4 border-white dark:border-neutral-800 overflow-hidden relative group">
-                <img src="kunal.jpg" 
-                     onerror="this.src='https://ui-avatars.com/api/?name=Kunal+Urkude&background=ef4444&color=fff&size=256'" 
+                <img src="./kunal.jpg" 
+                     onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Kunal+Urkude&background=ef4444&color=fff&size=256'" 
                      alt="Kunal Urkude" 
                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
             </div>
@@ -338,9 +338,8 @@
     <section id="contact" class="py-20 md:py-28 px-4 max-w-3xl mx-auto text-center">
         <!-- Storyset Illustration for Contact/Message -->
         <div class="w-32 h-32 md:w-40 md:h-40 mx-auto flex items-center justify-center mb-4 animate-float">
-            <!-- Download a generic email/contact SVG from storyset or use this fallback -->
-            <img src="assets/contact.svg" 
-                 onerror="this.src='https://illustrations.popsy.co/red/email.svg'" 
+            <img src="./contact.svg" 
+                 onerror="this.onerror=null; this.src='https://illustrations.popsy.co/red/email.svg'" 
                  alt="Contact Illustration" 
                  class="w-full h-auto drop-shadow-xl" />
         </div>
@@ -468,8 +467,8 @@
         const blob2 = document.getElementById('hero-blob-2');
         
         heroSection.addEventListener('mousemove', (e) => {
-            // Disable on mobile/touch screens to prevent erratic jumping
-            if (window.innerWidth < 768) return;
+            // Disabled on mobile sizes to prevent screen jumping!
+            if (window.innerWidth < 768) return; 
             
             const x = (e.clientX / window.innerWidth - 0.5) * 40;
             const y = (e.clientY / window.innerHeight - 0.5) * 40;
