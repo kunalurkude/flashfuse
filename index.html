@@ -1,502 +1,483 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!-- STRICT MOBILE VIEWPORT: Prevents accidental zooming on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Flashfuse Labs | Progressive Web Apps</title>
-    
-    <!-- Tab Logo / Favicon (Explicit pathing to fix loading loop) -->
-    <link rel="icon" type="image/png" href="./logo.png">
-    <link rel="apple-touch-icon" href="./logo.png">
-    <link rel="shortcut icon" href="./logo.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Flashfuse Labs — Small web apps that just work</title>
+  <meta name="description" content="Flashfuse Labs builds fast, focused Progressive Web Apps: Tally Pro for teachers and EV Studio for electric-vehicle batteries. Free, no sign-up, works offline, and your data stays on your device." />
+  <meta name="author" content="Kunal Urkude" />
+  <link rel="canonical" href="https://kunalurkude.github.io/flashfuse/" />
+  <meta name="google-site-verification" content="7dd0148a682d8e17" />
+  <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0D0D10" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
 
-    <!-- ========================================== -->
-    <!--                 SEO BRAIN                  -->
-    <!-- ========================================== -->
-    <meta name="description" content="Kunal Urkude is the lead developer and founder of Flashfuse Labs. We build high-performance, minimalist Progressive Web Apps (PWAs) and scalable web solutions.">
-    <meta name="keywords" content="Kunal Urkude, Flashfuse Labs, React Developer, Progressive Web Apps, PWA Developer, Frontend Engineer, Web Development">
-    <meta name="author" content="Kunal Urkude">
-    <!-- URLs updated to point to /flashfuse/ -->
-    <link rel="canonical" href="https://kunalurkude.github.io/flashfuse/">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kunalurkude.github.io/flashfuse/" />
+  <meta property="og:title" content="Flashfuse Labs — Small web apps that just work" />
+  <meta property="og:description" content="Free, offline-ready Progressive Web Apps for teachers and EV builders. No sign-up. Your data stays on your device." />
+  <meta property="og:image" content="https://kunalurkude.github.io/flashfuse/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="7dd0148a682d8e17" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=1" />
 
-    <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kunalurkude.github.io/flashfuse/">
-    <meta property="og:title" content="Flashfuse Labs | Progressive Web Apps by Kunal Urkude">
-    <meta property="og:description" content="Engineering high-performance applications, minimal interfaces, and robust Progressive Web Apps designed for the modern web.">
-    <meta property="og:image" content="https://kunalurkude.github.io/flashfuse/logo.png">
+  <!-- Apply saved theme before paint so there's no flash -->
+  <script>
+    try { const t = localStorage.getItem("ff-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kunalurkude.github.io/flashfuse/">
-    <meta property="twitter:title" content="Flashfuse Labs | Progressive Web Apps">
-    <meta property="twitter:description" content="Engineering high-performance applications, minimal interfaces, and robust Progressive Web Apps designed for the modern web.">
-    <meta property="twitter:image" content="https://kunalurkude.github.io/flashfuse/logo.png">
-    <!-- ========================================== -->
-    
-    <!-- Google Fonts: Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        /* Custom Animations & Effects */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float {
-            animation: float 5s ease-in-out infinite;
-        }
-
-        /* 3D Spotlight Card Effects */
-        .spotlight-card {
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out, border-color 0.3s ease;
-        }
-        .spotlight-glow {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1;
-        }
-        .spotlight-card:hover .spotlight-glow {
-            opacity: 1;
-        }
-        .spotlight-content {
-            transform: translateZ(30px);
-            transform-style: preserve-3d;
-        }
-        
-        /* Shimmer sweep effect */
-        .shimmer-sweep {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-        }
-        .dark .shimmer-sweep {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-        }
-
-        /* Hide scrollbar for clean look */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .dark ::-webkit-scrollbar-thumb { background: #334155; }
-    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Flashfuse Labs",
+    "url": "https://kunalurkude.github.io/flashfuse/",
+    "logo": "https://kunalurkude.github.io/flashfuse/assets/logo.webp",
+    "founder": { "@type": "Person", "name": "Kunal Urkude" },
+    "sameAs": ["https://www.linkedin.com/in/kunalurkude", "https://x.com/kunalurkude7", "https://www.youtube.com/@kunalurkude"]
+  }
+  </script>
 </head>
-<body class="bg-slate-50 dark:bg-neutral-950 text-slate-900 dark:text-white selection:bg-red-500/20 selection:text-red-900 dark:selection:text-white transition-colors duration-300 relative overflow-x-hidden min-h-screen">
+<body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+      <symbol id="i-offline" viewBox="0 0 24 24"><path d="M2 2l20 20M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 5.2-2.8M19 13a10 10 0 0 0-2-1.6M2 8.8a15 15 0 0 1 4.2-2.6M22 8.8A15 15 0 0 0 11 5M12 20h.01"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+      <symbol id="i-devices" viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="10" rx="1.5"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.2"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+      <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14a4.5 4.5 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+      <symbol id="i-plane" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+    </defs>
+  </svg>
 
-    <!-- NAVIGATION -->
-    <nav class="fixed w-full z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-neutral-900 transition-colors">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center cursor-pointer group gap-3" onclick="scrollToSection('home')">
-                    
-                    <!-- BRAND LOGO (this.onerror=null added to prevent loops) -->
-                    <img src="./logo.png" 
-                         onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=FL&background=ef4444&color=fff&rounded=true&bold=true'" 
-                         alt="Flashfuse Logo" 
-                         class="w-10 h-10 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-sm rounded-full object-cover" />
-                    
-                    <span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white transition-colors">
-                        Flashfuse Labs
-                    </span>
-                </div>
-                
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-500 dark:text-neutral-400">
-                    <button onclick="scrollToSection('home')" class="hover:text-red-600 dark:hover:text-red-500 transition-colors">Home</button>
-                    <button onclick="scrollToSection('projects')" class="hover:text-red-600 dark:hover:text-red-500 transition-colors">Apps</button>
-                    <button onclick="scrollToSection('capabilities')" class="hover:text-red-600 dark:hover:text-red-500 transition-colors">Edge</button>
-                    <button onclick="scrollToSection('about')" class="hover:text-red-600 dark:hover:text-red-500 transition-colors">About</button>
-                    <button onclick="scrollToSection('contact')" class="text-slate-900 dark:text-white font-semibold hover:text-red-600 dark:hover:text-red-500 transition-colors">Contact</button>
-                    
-                    <button class="theme-toggle p-2 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-neutral-300 hover:text-red-600 dark:hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all" aria-label="Toggle Dark Mode">
-                        <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
-                        <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
-                    </button>
-                </div>
+  <a class="skip" href="#main">Skip to content</a>
 
-                <!-- Mobile Menu Buttons -->
-                <div class="md:hidden flex items-center gap-4">
-                    <button class="theme-toggle p-2 rounded-full bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-neutral-300 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors">
-                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-                    </button>
-                    <button id="mobile-menu-btn" class="text-slate-500 dark:text-neutral-400 hover:text-red-600 dark:hover:text-red-500 transition-colors p-2">
-                        <i data-lucide="menu" class="w-6 h-6 menu-icon"></i>
-                        <i data-lucide="x" class="w-6 h-6 close-icon hidden"></i>
-                    </button>
-                </div>
-            </div>
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a href="#top" class="brand" aria-label="Flashfuse Labs home">
+        <img src="assets/logo.webp" alt="" width="56" height="39" />
+        <span>Flashfuse<b> Labs</b></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#apps">Apps</a>
+        <a href="#why">Why Flashfuse</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Switch to dark theme">
+          <svg class="ico ico--moon"><use href="#i-moon"/></svg>
+          <svg class="ico ico--sun"><use href="#i-sun"/></svg>
+        </button>
+        <a href="#contact" class="btn btn--sm nav__cta">Build an app with us</a>
+        <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="menu" id="menu" hidden>
+      <a href="#apps">Apps</a>
+      <a href="#why">Why Flashfuse</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn">Build an app with us</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="pill"><span class="pill__dot"></span> 3 apps live · free to use</p>
+          <h1 class="hero__title">Small web apps<br />that <span class="flash">just work.</span></h1>
+          <p class="hero__lede">Flashfuse Labs builds fast, focused Progressive Web Apps. Open one in your browser and start. No sign-up, no ads, and nothing you type ever leaves your device.</p>
+          <div class="hero__ctas">
+            <a href="#apps" class="btn btn--lg">Explore the apps <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a href="#contact" class="btn btn--lg btn--ghost">Build an app with us</a>
+          </div>
+          <ul class="hero__facts" aria-label="What every app includes">
+            <li><svg class="ico"><use href="#i-check"/></svg> Free</li>
+            <li><svg class="ico"><use href="#i-check"/></svg> No account</li>
+            <li><svg class="ico"><use href="#i-check"/></svg> Private</li>
+            <li><svg class="ico"><use href="#i-check"/></svg> Any device</li>
+          </ul>
         </div>
 
-        <!-- Mobile Nav Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-neutral-900 border-t border-slate-100 dark:border-neutral-800 shadow-xl absolute w-full transition-colors">
-            <div class="px-4 py-4 space-y-1 font-medium text-slate-500 dark:text-neutral-400">
-                <button onclick="scrollToSection('home'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">Home</button>
-                <button onclick="scrollToSection('projects'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">Apps</button>
-                <button onclick="scrollToSection('capabilities'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">Capabilities</button>
-                <button onclick="scrollToSection('about'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-neutral-800 hover:text-red-600 dark:hover:text-red-500 transition-all">About</button>
-                <button onclick="scrollToSection('contact'); toggleMenu();" class="block w-full text-left px-4 py-3 rounded-2xl bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-500 mt-2 transition-all">Contact</button>
-            </div>
+        <!-- Signature: a lit fuse runs into the app collage -->
+        <div class="hero__visual" aria-hidden="true">
+          <svg class="fuse" viewBox="0 0 600 560" preserveAspectRatio="none">
+            <path id="fusePath" d="M10 520 C 120 520, 120 380, 230 400 S 330 520, 420 430 S 470 230, 560 180" />
+          </svg>
+          <span class="spark" id="spark"></span>
+
+          <figure class="shot shot--browser">
+            <div class="shot__bar"><i></i><i></i><i></i><span>evrex.in/studio</span></div>
+            <img src="assets/shots/evpro-inputs.webp" alt="" width="784" height="725" />
+          </figure>
+          <figure class="shot shot--phone shot--tally">
+            <img src="assets/shots/tally-phone.webp" alt="" width="428" height="856" />
+          </figure>
+          <figure class="shot shot--phone shot--ev">
+            <img src="assets/shots/evstudio-phone.webp" alt="" width="428" height="856" />
+          </figure>
         </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section id="home" class="relative pt-28 pb-16 md:pt-36 md:pb-20 px-4 max-w-7xl mx-auto flex flex-col justify-center min-h-[85vh] overflow-hidden">
-        <div id="hero-blob-1" class="absolute top-1/4 right-10 md:right-32 w-64 h-64 md:w-[400px] md:h-[400px] bg-red-300 dark:bg-red-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-30 dark:opacity-20 -z-10 transition-transform duration-100 ease-out"></div>
-        <div id="hero-blob-2" class="absolute bottom-1/4 left-5 md:left-20 w-48 h-48 md:w-[300px] md:h-[300px] bg-red-200 dark:bg-red-600 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[100px] opacity-40 dark:opacity-20 -z-10 transition-transform duration-100 ease-out"></div>
-
-        <!-- 2-Column Hero Layout -->
-        <div class="relative z-10 w-full flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
-            
-            <!-- Left: Text Content -->
-            <div class="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
-                <h1 class="text-4xl sm:text-5xl md:text-[4.5rem] lg:text-[5rem] font-bold tracking-tight mb-6 text-slate-900 dark:text-white leading-[1.1]">
-                    We build <br class="hidden md:block"/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 dark:from-red-500 dark:to-red-800">Progressive Web Apps</span> <br/>
-                    that flow seamlessly.
-                </h1>
-                
-                <p class="text-lg md:text-xl text-slate-600 dark:text-neutral-400 mb-8 max-w-xl leading-relaxed">
-                    Engineering high-performance applications, minimal interfaces, and robust Progressive Web Apps designed for the modern web.
-                </p>
-                
-                <div class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
-                    <button onclick="scrollToSection('projects')" class="bg-red-600 text-white rounded-full px-8 py-3.5 md:py-4 font-bold flex items-center gap-2 shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:bg-red-700 hover:-translate-y-1 transition-all group">
-                        Explore Apps <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                    <button onclick="scrollToSection('about')" class="bg-white dark:bg-neutral-900 text-slate-900 dark:text-white rounded-full px-8 py-3.5 md:py-4 font-bold flex items-center gap-2 border border-slate-200 dark:border-neutral-800 hover:bg-slate-50 dark:hover:bg-neutral-800 hover:-translate-y-1 transition-all">
-                        Meet the Developer
-                    </button>
-                </div>
-            </div>
-
-            <!-- Right: Storyset Illustration -->
-            <div class="flex-1 w-full max-w-[300px] md:max-w-[450px] flex justify-center items-center drop-shadow-2xl animate-float">
-                <img src="./mobile-testing.svg" 
-                     onerror="this.onerror=null; this.src='https://illustrations.popsy.co/red/app-development.svg'" 
-                     alt="Mobile Testing Illustration" 
-                     class="w-full h-auto" />
-            </div>
-
-        </div>
+      </div>
     </section>
 
-    <!-- PROJECTS SECTION (Product Cards) -->
-    <section id="projects" class="py-16 md:py-24 px-4 max-w-7xl mx-auto relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-400 dark:bg-red-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[150px] opacity-20 -z-10 pointer-events-none"></div>
-
-        <div class="mb-12 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">App Showcase</h2>
-            <p class="text-slate-600 dark:text-neutral-400 text-lg">Featured projects crafted with precision.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative z-10">
-            
-            <!-- App 1: Tally Pro -->
-            <div class="group flex flex-col bg-white dark:bg-neutral-900 rounded-[2rem] border border-slate-200 dark:border-neutral-800 overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 dark:hover:shadow-red-900/20 transition-all duration-300 hover:-translate-y-2">
-                <div class="h-48 bg-slate-50 dark:bg-neutral-950 relative flex items-center justify-center overflow-hidden border-b border-slate-100 dark:border-neutral-800">
-                    <div class="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-100 dark:from-neutral-900 to-transparent opacity-80"></div>
-                    <div class="relative z-10 w-20 h-20 bg-white dark:bg-neutral-800 rounded-[1.5rem] flex items-center justify-center shadow-md border border-slate-100 dark:border-neutral-700 text-red-500 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                        <i data-lucide="smartphone" class="w-8 h-8 stroke-[1.5]"></i>
-                    </div>
-                    <div class="absolute top-5 left-5 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-bold text-slate-700 dark:text-neutral-300 tracking-wider uppercase border border-slate-200 dark:border-neutral-700 shadow-sm">
-                        React
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex flex-col h-full">
-                    <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Tally Pro</h3>
-                    <p class="text-slate-600 dark:text-neutral-400 mb-6 flex-grow leading-relaxed text-sm">
-                        A sleek Progressive Web App (PWA) featuring custom timers, offline functionality, and intuitive touch controls.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">PWA</span>
-                        <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">Tailwind</span>
-                        <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">Storage</span>
-                    </div>
-                    <a href="https://kunalurkude.github.io/tallymarks/" target="_blank" rel="noreferrer" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3.5 rounded-xl transition-all flex justify-center items-center gap-2 shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:scale-[1.02] active:scale-95">
-                        <span>Open App</span>
-                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- App 2: EV Studio -->
-            <div class="group flex flex-col bg-white dark:bg-neutral-900 rounded-[2rem] border border-slate-200 dark:border-neutral-800 overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 dark:hover:shadow-red-900/20 transition-all duration-300 hover:-translate-y-2">
-                <div class="h-48 bg-slate-50 dark:bg-neutral-950 relative flex items-center justify-center overflow-hidden border-b border-slate-100 dark:border-neutral-800">
-                    <div class="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-100 dark:from-neutral-900 to-transparent opacity-80"></div>
-                    <div class="relative z-10 w-20 h-20 bg-white dark:bg-neutral-800 rounded-[1.5rem] flex items-center justify-center shadow-md border border-slate-100 dark:border-neutral-700 text-red-500 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                        <i data-lucide="battery" class="w-8 h-8 stroke-[1.5]"></i>
-                    </div>
-                    <div class="absolute top-5 left-5 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-bold text-slate-700 dark:text-neutral-300 tracking-wider uppercase border border-slate-200 dark:border-neutral-700 shadow-sm">
-                        JavaScript
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex flex-col h-full">
-                    <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">EV Studio Battery Maker</h3>
-                    <p class="text-slate-600 dark:text-neutral-400 mb-6 flex-grow leading-relaxed text-sm">
-                        A specialized web application for configuring and designing electric vehicle battery packs with interactive UI tools.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">HTML/CSS</span>
-                        <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">Interactive UI</span>
-                    </div>
-                    <a href="https://kunalurkude.github.io/battery/" target="_blank" rel="noreferrer" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3.5 rounded-xl transition-all flex justify-center items-center gap-2 shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:scale-[1.02] active:scale-95">
-                        <span>Open App</span>
-                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- App 3: EV Configurator -->
-            <div class="group flex flex-col bg-white dark:bg-neutral-900 rounded-[2rem] border border-slate-200 dark:border-neutral-800 overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 dark:hover:shadow-red-900/20 transition-all duration-300 hover:-translate-y-2">
-                <div class="h-48 bg-slate-50 dark:bg-neutral-950 relative flex items-center justify-center overflow-hidden border-b border-slate-100 dark:border-neutral-800">
-                    <div class="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-100 dark:from-neutral-900 to-transparent opacity-80"></div>
-                    <div class="relative z-10 w-20 h-20 bg-white dark:bg-neutral-800 rounded-[1.5rem] flex items-center justify-center shadow-md border border-slate-100 dark:border-neutral-700 text-red-500 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                        <i data-lucide="battery-charging" class="w-8 h-8 stroke-[1.5]"></i>
-                    </div>
-                    <div class="absolute top-5 left-5 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-bold text-slate-700 dark:text-neutral-300 tracking-wider uppercase border border-slate-200 dark:border-neutral-700 shadow-sm">
-                        Web App
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 flex flex-col h-full">
-                    <h3 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">EV Battery Configurator</h3>
-                    <p class="text-slate-600 dark:text-neutral-400 mb-6 flex-grow leading-relaxed text-sm">
-                        A dynamic web studio for customizing and visualizing electric vehicle battery packs. Tailor specifications in a sleek, interactive environment.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">Interactive UI</span>
-                        <span class="text-[11px] font-semibold text-slate-600 dark:text-neutral-400 bg-slate-100 dark:bg-neutral-800 px-3 py-1 rounded-lg uppercase tracking-wider">Customizer</span>
-                    </div>
-                    <a href="https://evrex.in/studio/" target="_blank" rel="noreferrer" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3.5 rounded-xl transition-all flex justify-center items-center gap-2 shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:scale-[1.02] active:scale-95">
-                        <span>Open App</span>
-                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
+    <!-- PROMISE STRIP -->
+    <section class="strip" aria-label="Every Flashfuse app">
+      <div class="wrap strip__grid">
+        <div><strong>0</strong><span>sign-ups needed</span></div>
+        <div><strong>0</strong><span>ads, ever</span></div>
+        <div><strong>100%</strong><span>runs on your device</span></div>
+        <div><strong>3</strong><span>apps live today</span></div>
+      </div>
     </section>
 
-    <!-- CORE CAPABILITIES (Spotlight Section) -->
-    <section id="capabilities" class="py-16 md:py-24 px-4 max-w-7xl mx-auto relative z-10">
-        <div class="relative w-full overflow-hidden rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-12 bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 shadow-xl shadow-slate-200/50 dark:shadow-black/50 transition-colors">
-            
-            <div class="pointer-events-none absolute inset-0 dark:hidden opacity-50" style="background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px); background-size: 24px 24px;"></div>
-
-            <div class="relative mb-10 flex flex-col gap-2 text-center md:text-left">
-                <p class="font-bold text-xs text-red-600 dark:text-red-500 uppercase tracking-[0.2em]">The Flashfuse Edge</p>
-                <h2 class="font-bold text-3xl md:text-4xl text-slate-900 tracking-tight dark:text-white">Why use our tools</h2>
-            </div>
-
-            <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="capabilities-grid">
-                <!-- Cards generated via JS -->
-            </div>
+    <!-- APPS -->
+    <section class="section" id="apps">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2">The suite</h2>
+          <p class="lede">Each app does one job and does it fast. Tap a name to jump to it.</p>
+          <nav class="suite-nav" aria-label="Apps">
+            <a href="#app-tally" class="suite-nav__item"><span class="tag tag--violet">Education</span> Tally Pro</a>
+            <a href="#app-evstudio" class="suite-nav__item"><span class="tag tag--green">EV tools</span> EV Studio</a>
+            <a href="#app-evpro" class="suite-nav__item"><span class="tag tag--blue">EV tools · Pro</span> EV Studio Pro</a>
+          </nav>
         </div>
+
+        <!-- Tally Pro -->
+        <article class="product" id="app-tally">
+          <div class="product__media product__media--phone">
+            <div class="halo halo--violet"></div>
+            <figure class="shot shot--phone shot--solo"><img src="assets/shots/tally-phone.webp" alt="Tally Pro showing seven papers adding up to a grand total of 127" width="428" height="856" loading="lazy" /></figure>
+          </div>
+          <div class="product__body">
+            <span class="tag tag--violet">For teachers · PWA</span>
+            <h3 class="h3">Tally Pro</h3>
+            <p class="product__pitch">Total a stack of exam papers in minutes. Type each paper's marks on a big keypad and Tally Pro adds them up as you go.</p>
+            <ul class="features">
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Auto-add.</b> Stop typing and the mark adds itself after 0.5s, 1s, 2s, 3s or your own delay.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Live grand total</b> and paper count, always on screen.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Fix mistakes fast.</b> Edit or delete any paper's entry.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Made for thumbs.</b> Large keys with a tiny vibration on every tap.</span></li>
+            </ul>
+            <div class="product__foot">
+              <a href="https://kunalurkude.github.io/tallymarks/" target="_blank" rel="noopener" class="btn">Open Tally Pro <svg class="ico"><use href="#i-out"/></svg></a>
+              <span class="platforms">Phone · Tablet · Installable · Offline</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- EV Studio -->
+        <article class="product product--flip" id="app-evstudio">
+          <div class="product__media product__media--phone">
+            <div class="halo halo--green"></div>
+            <figure class="shot shot--phone shot--solo"><img src="assets/shots/evstudio-phone.webp" alt="EV Studio showing 96 km range and ₹15.84 full-charge cost for a 72V 40Ah e-scooter" width="428" height="856" loading="lazy" /></figure>
+          </div>
+          <div class="product__body">
+            <span class="tag tag--green">For EV owners &amp; builders · Free</span>
+            <h3 class="h3">EV Studio</h3>
+            <p class="product__pitch">Know your electric vehicle's real range and running cost, then design the battery pack to match.</p>
+            <ul class="features">
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Range &amp; cost estimator.</b> Range, charge time, cost per km and full-charge cost from voltage, capacity and vehicle type.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Electricity rates for 19 Indian states</b> built in, or enter your own.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Battery pack builder.</b> Pick a cell (18650, 21700, LiFePO4, prismatic) and get the series/parallel layout and cell count.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Show the math.</b> Tap any result to see the formula with your numbers in it.</span></li>
+            </ul>
+            <div class="product__foot">
+              <a href="https://kunalurkude.github.io/battery/" target="_blank" rel="noopener" class="btn">Open EV Studio <svg class="ico"><use href="#i-out"/></svg></a>
+              <span class="platforms">Phone · Tablet · Desktop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- EV Studio Pro -->
+        <article class="product product--wide" id="app-evpro">
+          <div class="product__body">
+            <span class="tag tag--blue">For engineers &amp; fleets · Pro edition</span>
+            <h3 class="h3">EV Studio Pro</h3>
+            <p class="product__pitch">The advanced battery performance suite, live at evrex.in. Everything in EV Studio, plus real-world conditions and a full cell library.</p>
+            <ul class="features features--2col">
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Real-world range.</b> Temperature, driving style, terrain and usable charge window change the result.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>30+ real cells</b> including Tesla 4680, BYD Blade, CATL, Samsung SDI, LG Chem and sodium-ion.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Weight and volume</b> estimates for the finished pack, with busbar overhead.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Live cell matrix.</b> A schematic of your series and parallel groups as you build.</span></li>
+            </ul>
+            <div class="product__foot">
+              <a href="https://evrex.in/studio/" target="_blank" rel="noopener" class="btn">Open EV Studio Pro <svg class="ico"><use href="#i-out"/></svg></a>
+              <span class="platforms">Desktop · Tablet · Phone</span>
+            </div>
+          </div>
+          <div class="product__media product__media--browser">
+            <div class="halo halo--blue"></div>
+            <figure class="shot shot--browser shot--a">
+              <div class="shot__bar"><i></i><i></i><i></i><span>evrex.in/studio</span></div>
+              <img src="assets/shots/evpro-inputs.webp" alt="EV Studio Pro inputs: 72V, 40Ah, lithium-ion NMC, e-scooter, temperature and terrain controls" width="784" height="725" loading="lazy" />
+            </figure>
+            <figure class="shot shot--browser shot--b">
+              <div class="shot__bar"><i></i><i></i><i></i><span>Pack builder</span></div>
+              <img src="assets/shots/evpro-pack.webp" alt="EV Studio Pro pack builder: 72V 41.6Ah, 16.56 kg, 2.995 kWh, with live cell matrix" width="784" height="725" loading="lazy" />
+            </figure>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-16 md:py-24 px-4 max-w-7xl mx-auto">
-        <div class="bg-white dark:bg-neutral-900 rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-12 border border-slate-200 dark:border-neutral-800 flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-xl shadow-slate-200/50 dark:shadow-black/50 transition-colors">
-            
-            <!-- PROFILE IMAGE -->
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full flex-shrink-0 shadow-xl border-4 border-white dark:border-neutral-800 overflow-hidden relative group">
-                <img src="./kunal.jpg" 
-                     onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Kunal+Urkude&background=ef4444&color=fff&size=256'" 
-                     alt="Kunal Urkude" 
-                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-            </div>
-
-            <div class="text-center md:text-left">
-                <h2 class="text-sm font-bold text-red-500 tracking-widest uppercase mb-1.5">Lead Developer</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Kunal Urkude</h3>
-                <p class="text-slate-600 dark:text-neutral-400 md:text-lg leading-relaxed max-w-2xl mb-6">
-                    I am the founder and lead engineer at Flashfuse Labs. My philosophy is simple: technology should get out of the user's way. I specialize in crafting clean, intuitive, and lightning-fast web applications using React and modern frontend architectures. Every app showcased here represents a commitment to elegant code and neuminimalist design.
-                </p>
-                
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-6">
-                    <a href="https://kunalurkude.super.site" target="_blank" rel="noreferrer" class="p-3 bg-slate-50 dark:bg-neutral-800 text-slate-600 dark:text-neutral-300 rounded-full hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-600 dark:hover:text-red-500 transition-colors shadow-sm dark:shadow-none" aria-label="Personal Portfolio">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@kunalurkude" target="_blank" rel="noreferrer" class="p-3 bg-slate-50 dark:bg-neutral-800 text-slate-600 dark:text-neutral-300 rounded-full hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-600 dark:hover:text-red-500 transition-colors shadow-sm dark:shadow-none" aria-label="YouTube Channel">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/kunalurkude" target="_blank" rel="noreferrer" class="p-3 bg-slate-50 dark:bg-neutral-800 text-slate-600 dark:text-neutral-300 rounded-full hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-600 dark:hover:text-red-500 transition-colors shadow-sm dark:shadow-none" aria-label="LinkedIn Profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="https://x.com/kunalurkude7" target="_blank" rel="noreferrer" class="p-3 bg-slate-50 dark:bg-neutral-800 text-slate-600 dark:text-neutral-300 rounded-full hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-600 dark:hover:text-red-500 transition-colors shadow-sm dark:shadow-none" aria-label="X (Twitter) Profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
-                    </a>
-                </div>
-
-                <button onclick="scrollToSection('contact')" class="text-red-600 dark:text-red-500 font-semibold flex items-center gap-2 hover:gap-3 transition-all mx-auto md:mx-0">
-                    Let's connect <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </button>
-            </div>
+    <!-- WHY -->
+    <section class="section section--tint" id="why">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2">Why people stick with Flashfuse</h2>
+          <p class="lede">The same six promises are built into every app we ship.</p>
         </div>
+        <div class="bento">
+          <article class="tile tile--big">
+            <svg class="ico ico--tile"><use href="#i-offline"/></svg>
+            <h3>Offline-ready</h3>
+            <p>Install Tally Pro from your browser and keep marking in a classroom or on a train, with no signal.</p>
+            <div class="offline-demo" aria-hidden="true">
+              <span class="offline-demo__badge">Offline</span>
+              <span class="offline-demo__total">127</span>
+              <span class="offline-demo__label">Still adding up</span>
+            </div>
+          </article>
+          <article class="tile">
+            <svg class="ico ico--tile"><use href="#i-lock"/></svg>
+            <h3>Private by design</h3>
+            <p>Every calculation happens in your browser. Nothing is sent to a server, so there's nothing to leak.</p>
+          </article>
+          <article class="tile">
+            <svg class="ico ico--tile"><use href="#i-zap"/></svg>
+            <h3>Instant</h3>
+            <p>No heavy backend and no loading spinners. Everything runs on your device.</p>
+          </article>
+          <article class="tile">
+            <svg class="ico ico--tile"><use href="#i-smile"/></svg>
+            <h3>Zero learning curve</h3>
+            <p>One screen, one job. If you can use a calculator, you can use our apps.</p>
+          </article>
+          <article class="tile">
+            <svg class="ico ico--tile"><use href="#i-devices"/></svg>
+            <h3>Any device</h3>
+            <p>Phone, tablet or laptop. Open the link and you're in.</p>
+          </article>
+          <article class="tile tile--wide">
+            <svg class="ico ico--tile"><use href="#i-code"/></svg>
+            <h3>Open source</h3>
+            <p>Free to use, and the code is public on GitHub to inspect or fork.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-20 md:py-28 px-4 max-w-3xl mx-auto text-center">
-        
-        <h3 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Ready to build something?</h3>
-        <p class="text-slate-600 dark:text-neutral-400 mb-8 md:text-lg leading-relaxed">
-            Whether you have a fully formed project or just an idea, I'm currently taking on new clients. Let's create an elegant, high-performing app together.
-        </p>
-        
-        <div class="flex flex-col items-center justify-center gap-4">
-            <a href="mailto:kunalurkudeatwork@gmail.com" class="inline-flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-full font-medium shadow-lg shadow-red-500/20 dark:shadow-red-900/20 hover:bg-red-700 hover:-translate-y-1 transition-all">
-                Get in Touch
-            </a>
-            <a href="mailto:kunalurkudeatwork@gmail.com" class="text-slate-500 dark:text-neutral-400 hover:text-red-600 dark:hover:text-red-500 transition-colors text-sm font-medium">
-                kunalurkudeatwork@gmail.com
-            </a>
+    <!-- HOW IT WORKS (real sequence → numbered) -->
+    <section class="section" id="how">
+      <div class="wrap how">
+        <div class="head head--left">
+          <h2 class="h2">Up and running in 10 seconds</h2>
+          <p class="lede">No app store, no download, no account.</p>
         </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__n">1</span>
+            <h3>Open the link</h3>
+            <p>Tap an app above. It loads in your browser straight away.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">2</span>
+            <h3>Add to home screen</h3>
+            <p>Choose "Install" or "Add to Home Screen" in your browser menu. It gets its own icon.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">3</span>
+            <h3>Use it anywhere</h3>
+            <p>It opens full-screen like a native app. Tally Pro even works with no internet.</p>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-8 text-center border-t border-slate-200 dark:border-neutral-800 transition-colors">
-        <p class="text-slate-500 dark:text-neutral-500 text-sm font-medium">
-            &copy; <span id="year"></span> Flashfuse Labs. Built by Kunal Urkude.
-        </p>
-    </footer>
+    <!-- COMPARISON -->
+    <section class="section section--tint" id="compare">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2">How we're different</h2>
+          <p class="lede">Compared with the usual online tools and app-store apps.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="compare">
+            <thead>
+              <tr><th scope="col"><span class="sr">Feature</span></th><th scope="col" class="compare__us">Flashfuse apps</th><th scope="col">Typical apps</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Account needed</th><td class="compare__us"><svg class="ico yes"><use href="#i-check"/></svg> Never</td><td><svg class="ico no"><use href="#i-x"/></svg> Usually</td></tr>
+              <tr><th scope="row">Ads or tracking</th><td class="compare__us"><svg class="ico yes"><use href="#i-check"/></svg> None</td><td><svg class="ico no"><use href="#i-x"/></svg> Common</td></tr>
+              <tr><th scope="row">Works without a server</th><td class="compare__us"><svg class="ico yes"><use href="#i-check"/></svg> Yes</td><td><svg class="ico no"><use href="#i-x"/></svg> Rarely</td></tr>
+              <tr><th scope="row">Where your data lives</th><td class="compare__us"><svg class="ico yes"><use href="#i-check"/></svg> Your device</td><td><svg class="ico no"><use href="#i-x"/></svg> Their servers</td></tr>
+              <tr><th scope="row">Install</th><td class="compare__us"><svg class="ico yes"><use href="#i-check"/></svg> One tap, tiny</td><td><svg class="ico no"><use href="#i-x"/></svg> App-store download</td></tr>
+              <tr><th scope="row">Price</th><td class="compare__us"><svg class="ico yes"><use href="#i-check"/></svg> Free</td><td><svg class="ico no"><use href="#i-x"/></svg> Free trial, then pay</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // 1. Data Definitions
-        const capabilities = [
-            { icon: 'code', title: "Free & Open Source", description: "Completely transparent and free to use. Inspect the code, contribute, or fork it for your own needs.", color: "#ef4444" },
-            { icon: 'wifi-off', title: "Offline Capable", description: "Installable as Progressive Web Apps (PWAs). Keep using our tools seamlessly even without an internet connection.", color: "#3b82f6" },
-            { icon: 'layout', title: "Intuitive & Easy", description: "Zero learning curve. Minimalist, distraction-free interfaces designed so you can focus on getting things done.", color: "#10b981" },
-            { icon: 'zap', title: "Lightning Fast", description: "No heavy backends or loading spinners. Everything runs smoothly on your device for immediate responses.", color: "#a855f7" },
-            { icon: 'lock', title: "Privacy First", description: "Your data stays yours. We utilize local browser storage so you never have to worry about cloud data breaches.", color: "#0ea5e9" },
-            { icon: 'smartphone', title: "Cross-Platform", description: "Works perfectly on any device. Mobile, tablet, or desktop—just open your browser and you're good to go.", color: "#f43f5e" }
-        ];
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="h2">Simple pricing</h2>
+          <p class="lede">Our apps are free. If you need one built for you, we can do that too.</p>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <h3>Every app</h3>
+            <p class="plan__price"><strong>₹0</strong><span>forever</span></p>
+            <p class="plan__desc">Use any Flashfuse app as much as you like.</p>
+            <ul class="features">
+              <li><svg class="ico"><use href="#i-check"/></svg><span>All current and future apps</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span>No account, no ads</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span>Runs privately on your device</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span>Free updates</span></li>
+            </ul>
+            <a href="#apps" class="btn btn--ghost btn--block">Pick an app</a>
+          </article>
+          <article class="plan plan--featured">
+            <span class="plan__flag">For businesses &amp; schools</span>
+            <h3>Custom app</h3>
+            <p class="plan__price"><strong>Let's talk</strong><span>quoted per project</span></p>
+            <p class="plan__desc">A tool built for your exact workflow: a calculator, tracker, configurator or internal dashboard.</p>
+            <ul class="features">
+              <li><svg class="ico"><use href="#i-check"/></svg><span>Designed around how your team works</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span>Your branding, your domain</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span>Fast, offline-ready PWA</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span>Support after launch</span></li>
+            </ul>
+            <a href="#contact" class="btn btn--block">Start a project <svg class="ico"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        // 2. DOM Generation (Capabilities Spotlight Cards)
-        const capGrid = document.getElementById('capabilities-grid');
-        capabilities.forEach(item => {
-            const card = document.createElement('div');
-            card.className = "spotlight-card group relative flex flex-col gap-4 overflow-hidden rounded-3xl border p-6 border-slate-200 bg-white shadow-lg shadow-slate-200/40 dark:border-white/10 dark:bg-white/5 dark:shadow-none transition-colors hover:border-slate-300 dark:hover:border-white/20";
-            card.style.perspective = "900px";
-            card.style.setProperty('--card-color', item.color);
-            
-            card.innerHTML = `
-                <div class="pointer-events-none absolute inset-0 rounded-3xl" style="background: radial-gradient(ellipse at 20% 20%, ${item.color}14, transparent 65%)"></div>
-                <div class="spotlight-glow pointer-events-none absolute inset-0 rounded-3xl" style="background: radial-gradient(ellipse at var(--mouse-x, 50%) var(--mouse-y, 50%), ${item.color}2e, transparent 65%)"></div>
-                <div class="shimmer-sweep pointer-events-none absolute inset-y-0 left-0 w-[55%] -translate-x-full -skew-x-12 transition-transform duration-700 ease-out group-hover:translate-x-[280%] z-0"></div>
-                
-                <div class="spotlight-content relative z-10 flex flex-col gap-2 h-full">
-                    <div class="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-xl md:rounded-2xl mb-2 md:mb-3" style="background: ${item.color}18; box-shadow: inset 0 0 0 1px ${item.color}30; color: ${item.color};">
-                        <i data-lucide="${item.icon}" class="w-5 h-5 stroke-[2]"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-slate-900 tracking-tight dark:text-white">${item.title}</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed dark:text-neutral-400">${item.description}</p>
-                </div>
-                <div class="absolute bottom-0 left-0 h-[3px] w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background: linear-gradient(to right, ${item.color}80, transparent)"></div>
-            `;
-            
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
+    <!-- FAQ -->
+    <section class="section section--tint" id="faq">
+      <div class="wrap faq">
+        <div class="head head--left">
+          <h2 class="h2">Questions</h2>
+          <p class="lede">Something else? <a href="#contact">Ask us directly.</a></p>
+        </div>
+        <div class="faq__list">
+          <details>
+            <summary>Are the apps really free?</summary>
+            <p>Yes. There's no trial, no paid tier and no ads. We make money building custom apps for businesses, not from you.</p>
+          </details>
+          <details>
+            <summary>Where is my data stored?</summary>
+            <p>Nowhere but your device. The apps don't send what you type to any server, and there are no accounts, ads or trackers.</p>
+          </details>
+          <details>
+            <summary>How do I install an app on my phone?</summary>
+            <p>Open the app, then use your browser menu. On Android Chrome tap ⋮ → "Install app". On iPhone Safari tap Share → "Add to Home Screen".</p>
+          </details>
+          <details>
+            <summary>Do they work without internet?</summary>
+            <p>Tally Pro installs as an app and keeps working offline. The EV tools need a connection to load, then every calculation runs on your device.</p>
+          </details>
+          <details>
+            <summary>Can you build an app like this for my business?</summary>
+            <p>Yes. Tell us what you want to calculate, track or configure and we'll reply with an idea, a timeline and a quote.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -9; 
-                const rotateY = ((x - centerX) / centerX) * 9; 
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="wrap about">
+        <img class="about__photo" src="assets/kunal.webp" alt="Kunal Urkude" width="400" height="400" loading="lazy" />
+        <div class="about__body">
+          <h2 class="h2">Built by Kunal Urkude</h2>
+          <p class="lede">I'm the founder and lead developer of Flashfuse Labs. My rule is simple: technology should get out of your way. Every app here is small, fast and focused on one job, because that's what I'd want to use myself.</p>
+          <p class="about__also">I also run <a href="https://kunalurkude.github.io/Samuniverse/" target="_blank" rel="noopener">Samuniverse</a>, a motion-video studio.</p>
+          <div class="socials">
+            <a href="https://kunalurkude.super.site" target="_blank" rel="noopener">Portfolio</a>
+            <a href="https://www.linkedin.com/in/kunalurkude" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://x.com/kunalurkude7" target="_blank" rel="noopener">X</a>
+            <a href="https://www.youtube.com/@kunalurkude" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://github.com/kunalurkude" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
+    <!-- CONTACT -->
+    <section class="cta" id="contact">
+      <div class="wrap">
+        <div class="cta__card">
+          <img src="assets/logo.webp" alt="" class="cta__logo" width="180" height="126" loading="lazy" />
+          <h2 class="h2">Got an idea for an app?</h2>
+          <p class="lede">Whether it's fully planned or just a sketch, I'm taking on new projects. Tell me what it should do.</p>
+          <div class="cta__actions">
+            <a href="mailto:kunalurkudeatwork@gmail.com?subject=App%20idea%20for%20Flashfuse%20Labs" class="btn btn--lg">Email me your idea <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <button class="btn btn--lg btn--ghost" id="copyEmail" data-email="kunalurkudeatwork@gmail.com">Copy email address</button>
+          </div>
+          <p class="cta__email" id="copyStatus" role="status" aria-live="polite">kunalurkudeatwork@gmail.com</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-            });
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <a href="#top" class="brand"><img src="assets/logo.webp" alt="" width="56" height="39" /><span>Flashfuse<b> Labs</b></span></a>
+        <p class="muted">Small web apps that just work.</p>
+      </div>
+      <div>
+        <h4>Apps</h4>
+        <a href="https://kunalurkude.github.io/tallymarks/" target="_blank" rel="noopener">Tally Pro</a>
+        <a href="https://kunalurkude.github.io/battery/" target="_blank" rel="noopener">EV Studio</a>
+        <a href="https://evrex.in/studio/" target="_blank" rel="noopener">EV Studio Pro</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="https://www.linkedin.com/in/kunalurkude" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/kunalurkude7" target="_blank" rel="noopener">X</a>
+        <a href="https://github.com/kunalurkude" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="wrap footer__base">
+      <p class="muted">© <span id="year"></span> Flashfuse Labs. Built by Kunal Urkude.</p>
+    </div>
+  </footer>
 
-            capGrid.appendChild(card);
-        });
-
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // 4. UI Interactions
-        document.getElementById('year').innerText = new Date().getFullYear();
-
-        // Dark Mode Toggle
-        const themeToggles = document.querySelectorAll('.theme-toggle');
-        const htmlElement = document.documentElement;
-        
-        themeToggles.forEach(btn => {
-            btn.addEventListener('click', () => {
-                htmlElement.classList.toggle('dark');
-            });
-        });
-
-        // Mobile Menu Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.querySelector('.menu-icon');
-        const closeIcon = document.querySelector('.close-icon');
-
-        function toggleMenu() {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        }
-        mobileBtn.addEventListener('click', toggleMenu);
-
-        // Smooth Scrolling
-        window.scrollToSection = function(id) {
-            const el = document.getElementById(id);
-            if(el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Hero Mouse Parallax
-        const heroSection = document.getElementById('home');
-        const blob1 = document.getElementById('hero-blob-1');
-        const blob2 = document.getElementById('hero-blob-2');
-        
-        heroSection.addEventListener('mousemove', (e) => {
-            // Disabled on mobile sizes to prevent screen jumping!
-            if (window.innerWidth < 768) return; 
-            
-            const x = (e.clientX / window.innerWidth - 0.5) * 40;
-            const y = (e.clientY / window.innerHeight - 0.5) * 40;
-            blob1.style.transform = `translate(${x}px, ${y}px)`;
-            blob2.style.transform = `translate(${-x * 1.5}px, ${-y * 1.5}px)`;
-        });
-
-    </script>
+  <script src="js/main.js?v=1"></script>
 </body>
 </html>
