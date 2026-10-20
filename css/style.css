@@ -181,6 +181,11 @@ button, .btn { -webkit-user-select: none; user-select: none; }
 .is-ready .hero__copy > :nth-child(4) { animation-delay: .24s; }
 .is-ready .hero__copy > :nth-child(5) { animation-delay: .32s; }
 @keyframes rise { to { opacity: 1; transform: none; } }
+/* Page opened in a background tab: show everything without waiting on animations */
+.no-anim .hero__copy > *, .no-anim .hero__visual .shot { opacity: 1 !important; transform: none; animation: none !important; }
+.no-anim .hero__visual .shot--browser { transform: rotate(2deg); }
+.no-anim .hero__visual .shot--tally { transform: rotate(-5deg); }
+.no-anim .hero__visual .shot--ev { transform: rotate(4deg); }
 
 /* Visual: device collage + lit fuse */
 .hero__visual { position: relative; aspect-ratio: 600 / 560; }

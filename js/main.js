@@ -42,6 +42,7 @@
   ["apps", "why", "pricing", "faq", "about"].forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
 
   /* ---------- Hero: page-load sequence + fuse spark ---------- */
+  if (document.visibilityState === "hidden") root.classList.add("no-anim");
   requestAnimationFrame(() => root.classList.add("is-ready"));
 
   const path = $("#fusePath"), spark = $("#spark"), visual = $(".hero__visual");
@@ -66,7 +67,8 @@
       };
       requestAnimationFrame(step);
     };
-    setTimeout(run, 500);
+    if (document.visibilityState === "visible") setTimeout(run, 500);
+    else document.addEventListener("visibilitychange", function once() { if (document.visibilityState === "visible") { document.removeEventListener("visibilitychange", once); setTimeout(run, 400); } });
     // Re-light the fuse when the visual is clicked/tapped
     visual.addEventListener("click", run);
   }
@@ -87,7 +89,7 @@
 
   /* ---------- Scroll reveals ---------- */
   $$(".head, .product, .tile, .step, .table-wrap, .plan, .faq__list, .about, .cta__card").forEach(el => el.classList.add("reveal"));
-  if (reduce || !("IntersectionObserver" in window)) { $$(".reveal").forEach(el => el.classList.add("is-in")); return; }
+  if (reduce || !("IntersectionObserver" in window) || document.visibilityState === "hidden") { $$(".reveal").forEach(el => el.classList.add("is-in")); return; }
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
   }), { rootMargin: "0px 0px -8% 0px", threshold: .06 });
