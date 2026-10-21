@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Flashfuse Labs — Small web apps that just work</title>
-  <meta name="description" content="Flashfuse Labs builds fast, focused Progressive Web Apps: Tally Pro for teachers and EV Studio for electric-vehicle batteries. Free, no sign-up, works offline, and your data stays on your device." />
+  <title>Flashfuse Labs — Free EV Range Calculator &amp; Marks Counter Apps</title>
+  <meta name="description" content="Flashfuse Labs makes free web apps: EV Studio, an EV range, charging cost and battery pack calculator for India, and Tally Pro, a marks counter for teachers. No sign-up, works on any phone." />
   <meta name="author" content="Kunal Urkude" />
   <link rel="canonical" href="https://kunalurkude.github.io/flashfuse/" />
-  <meta name="google-site-verification" content="7dd0148a682d8e17" />
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0D0D10" media="(prefers-color-scheme: dark)" />
   <meta name="color-scheme" content="light dark" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kunalurkude.github.io/flashfuse/" />
-  <meta property="og:title" content="Flashfuse Labs — Small web apps that just work" />
+  <meta property="og:title" content="Flashfuse Labs — Free EV range calculator and marks counter apps" />
+  <meta property="og:site_name" content="Flashfuse Labs" />
   <meta property="og:description" content="Free, offline-ready Progressive Web Apps for teachers and EV builders. No sign-up. Your data stays on your device." />
   <meta property="og:image" content="https://kunalurkude.github.io/flashfuse/assets/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=2" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
 
   <!-- Apply saved theme before paint so there's no flash -->
   <script>
@@ -34,12 +34,28 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Flashfuse Labs",
-    "url": "https://kunalurkude.github.io/flashfuse/",
-    "logo": "https://kunalurkude.github.io/flashfuse/assets/logo.webp",
-    "founder": { "@type": "Person", "name": "Kunal Urkude" },
-    "sameAs": ["https://www.linkedin.com/in/kunalurkude", "https://x.com/kunalurkude7", "https://www.youtube.com/@kunalurkude"]
+    "@graph": [
+      {
+        "@type": "Organization", "@id": "https://kunalurkude.github.io/flashfuse/#org",
+        "name": "Flashfuse Labs", "alternateName": "Flashfuse",
+        "url": "https://kunalurkude.github.io/flashfuse/",
+        "logo": "https://kunalurkude.github.io/flashfuse/assets/logo.webp",
+        "email": "kunalurkudeatwork@gmail.com",
+        "founder": { "@type": "Person", "name": "Kunal Urkude", "url": "https://kunalurkude.github.io/portfolio/" },
+        "sameAs": ["https://github.com/kunalurkude", "https://www.linkedin.com/in/kunalurkude", "https://x.com/kunalurkude7", "https://www.youtube.com/@kunalurkude"]
+      },
+      { "@type": "WebSite", "name": "Flashfuse Labs", "alternateName": "Flashfuse", "url": "https://kunalurkude.github.io/flashfuse/", "publisher": { "@id": "https://kunalurkude.github.io/flashfuse/#org" } },
+      { "@type": "SoftwareApplication", "name": "Tally Pro", "url": "https://kunalurkude.github.io/tallymarks/", "applicationCategory": "EducationalApplication", "operatingSystem": "Any (web browser)", "description": "Free marks counter for teachers that totals a stack of exam papers.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "publisher": { "@id": "https://kunalurkude.github.io/flashfuse/#org" } },
+      { "@type": "SoftwareApplication", "name": "EV Studio", "url": "https://kunalurkude.github.io/battery/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Free EV range, charging cost, charge time and battery pack calculator.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "publisher": { "@id": "https://kunalurkude.github.io/flashfuse/#org" } },
+      { "@type": "SoftwareApplication", "name": "EV Studio Pro", "url": "https://evrex.in/studio/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Advanced EV battery performance suite with real-world range and a 30+ cell library.", "publisher": { "@id": "https://kunalurkude.github.io/flashfuse/#org" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "Are the apps really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. There's no trial, no paid tier and no ads. We make money building custom apps for businesses, not from you." } },
+        { "@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "Nowhere but your device. The apps don't send what you type to any server, and there are no accounts, ads or trackers." } },
+        { "@type": "Question", "name": "How do I install an app on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Open the app, then use your browser menu. On Android Chrome tap ⋮ → Install app. On iPhone Safari tap Share → Add to Home Screen." } },
+        { "@type": "Question", "name": "Do they work without internet?", "acceptedAnswer": { "@type": "Answer", "text": "Tally Pro installs as an app and keeps working offline. The EV tools need a connection to load, then every calculation runs on your device." } },
+        { "@type": "Question", "name": "Can you build an app like this for my business?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tell us what you want to calculate, track or configure and we'll reply with an idea, a timeline and a quote." } }
+      ] }
+    ]
   }
   </script>
 </head>
@@ -131,13 +147,13 @@
 
           <figure class="shot shot--browser">
             <div class="shot__bar"><i></i><i></i><i></i><span>evrex.in/studio</span></div>
-            <img src="assets/shots/evpro-inputs.webp" alt="" width="784" height="725" />
+            <img src="assets/shots/evpro-inputs.webp" alt="EV Studio Pro battery calculator in a browser" width="784" height="725" />
           </figure>
           <figure class="shot shot--phone shot--tally">
-            <img src="assets/shots/tally-phone.webp" alt="" width="428" height="856" />
+            <img src="assets/shots/tally-phone.webp" alt="Tally Pro marks counter on a phone" width="428" height="856" />
           </figure>
           <figure class="shot shot--phone shot--ev">
-            <img src="assets/shots/evstudio-phone.webp" alt="" width="428" height="856" />
+            <img src="assets/shots/evstudio-phone.webp" alt="EV Studio range calculator on a phone" width="428" height="856" />
           </figure>
         </div>
       </div>
@@ -184,7 +200,7 @@
             </ul>
             <div class="product__foot">
               <a href="https://kunalurkude.github.io/tallymarks/" target="_blank" rel="noopener" class="btn">Open Tally Pro <svg class="ico"><use href="#i-out"/></svg></a>
-              <span class="platforms">Phone · Tablet · Installable · Offline</span>
+              <a href="marks-counter/" class="more-link">How it works</a>
             </div>
           </div>
         </article>
@@ -207,7 +223,7 @@
             </ul>
             <div class="product__foot">
               <a href="https://kunalurkude.github.io/battery/" target="_blank" rel="noopener" class="btn">Open EV Studio <svg class="ico"><use href="#i-out"/></svg></a>
-              <span class="platforms">Phone · Tablet · Desktop</span>
+              <a href="ev-range-calculator/" class="more-link">How range is calculated</a>
             </div>
           </div>
         </article>
@@ -419,7 +435,7 @@
         <div class="about__body">
           <h2 class="h2">Built by Kunal Urkude</h2>
           <p class="lede">I'm the founder and lead developer of Flashfuse Labs. My rule is simple: technology should get out of your way. Every app here is small, fast and focused on one job, because that's what I'd want to use myself.</p>
-          <p class="about__also">I also run <a href="https://kunalurkude.github.io/Samuniverse/" target="_blank" rel="noopener">Samuniverse</a>, a motion-video studio.</p>
+          <p class="about__also">See my <a href="https://kunalurkude.github.io/portfolio/" target="_blank" rel="noopener">portfolio</a>. I also run <a href="https://kunalurkude.github.io/Samuniverse/" target="_blank" rel="noopener">Samuniverse</a>, a motion-video studio.</p>
           <div class="socials">
             <a href="https://kunalurkude.super.site" target="_blank" rel="noopener">Portfolio</a>
             <a href="https://www.linkedin.com/in/kunalurkude" target="_blank" rel="noopener">LinkedIn</a>
@@ -459,6 +475,11 @@
         <a href="https://kunalurkude.github.io/tallymarks/" target="_blank" rel="noopener">Tally Pro</a>
         <a href="https://kunalurkude.github.io/battery/" target="_blank" rel="noopener">EV Studio</a>
         <a href="https://evrex.in/studio/" target="_blank" rel="noopener">EV Studio Pro</a>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <a href="ev-range-calculator/">EV range calculator</a>
+        <a href="marks-counter/">Marks counter for teachers</a>
       </div>
       <div>
         <h4>Company</h4>

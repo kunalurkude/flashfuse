@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>EV Range Calculator India: Range, Charging Cost &amp; Charge Time | Flashfuse</title>
+  <meta name="description" content="Free EV range calculator for e-scooters, e-bikes, e-rickshaws and electric cars in India. Find real range from battery voltage and Ah, cost per km in ₹, charging time and battery pack size." />
+  <meta name="author" content="Kunal Urkude" />
+  <link rel="canonical" href="https://kunalurkude.github.io/flashfuse/ev-range-calculator/" />
+  <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0D0D10" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Flashfuse Labs" />
+  <meta property="og:url" content="https://kunalurkude.github.io/flashfuse/ev-range-calculator/" />
+  <meta property="og:title" content="EV Range Calculator India: range, cost per km and charge time" />
+  <meta property="og:description" content="Work out how far your e-scooter, e-rickshaw or EV really goes on a charge, and what each km costs in rupees." />
+  <meta property="og:image" content="https://kunalurkude.github.io/flashfuse/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="../assets/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css?v=3" />
+  <link rel="stylesheet" href="../css/guide.css?v=2" />
+  <script>try { const t = localStorage.getItem("ff-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "EV Studio",
+        "url": "https://kunalurkude.github.io/battery/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any (web browser)",
+        "description": "Free EV range, charging cost, charge time and battery pack calculator for e-cycles, scooters, motorcycles, e-rickshaws and cars.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+        "author": { "@type": "Person", "name": "Kunal Urkude" },
+        "publisher": { "@type": "Organization", "name": "Flashfuse Labs", "url": "https://kunalurkude.github.io/flashfuse/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Flashfuse Labs", "item": "https://kunalurkude.github.io/flashfuse/" },
+          { "@type": "ListItem", "position": 2, "name": "EV Range Calculator", "item": "https://kunalurkude.github.io/flashfuse/ev-range-calculator/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How do I calculate the range of my electric scooter?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Multiply battery voltage by amp-hours to get watt-hours, multiply by the usable share (about 90% for lithium-ion), then divide by how many watt-hours your vehicle uses per km (about 33 Wh/km for a typical scooter). A 60V 50Ah lithium scooter gives roughly 3000 × 0.9 ÷ 33 ≈ 82 km." } },
+          { "@type": "Question", "name": "How much does it cost to charge an electric scooter in India?",
+            "acceptedAnswer": { "@type": "Answer", "text": "At ₹7 per unit (kWh), a typical scooter costs about ₹0.27 per km including charging losses. A full charge of a 60V 50Ah pack costs about ₹22." } },
+          { "@type": "Question", "name": "How long does an EV battery take to charge?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Divide the battery's Ah by the charger's current in amps for the main charge, then add extra time for the slower final 5–15%. A 50Ah pack on a 10A charger takes about 5 hours from empty to 95% and around 5.5 hours to full." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="g-nav">
+    <div class="wrap">
+      <a href="../" class="brand" aria-label="Flashfuse Labs home"><img src="../assets/logo.webp" alt="" width="56" height="39" /><span>Flashfuse<b> Labs</b></span></a>
+      <a href="https://kunalurkude.github.io/battery/" class="btn btn--sm">Open the calculator</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="g-crumbs" aria-label="Breadcrumb"><a href="../">Flashfuse Labs</a> › EV range calculator</nav>
+
+    <section class="g-hero">
+      <span class="tag tag--green">Free · No sign-up · Made for India</span>
+      <h1>EV range calculator: how far will your EV really go?</h1>
+      <p class="lede">Enter your battery's voltage and Ah, pick your vehicle, and EV Studio shows your real-world range, cost per km in rupees, charging time and the battery pack you'd need. It works for e-cycles, scooters, motorcycles, e-rickshaws and electric cars.</p>
+      <a href="https://kunalurkude.github.io/battery/" class="btn btn--lg">Calculate my range <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </section>
+
+    <article class="g-body">
+      <figure class="g-shot"><img src="../assets/shots/evstudio-phone.webp" alt="EV Studio showing 96 km range and ₹15.84 full-charge cost for a 72V 40Ah e-scooter" width="428" height="856" loading="lazy" /></figure>
+
+      <h2>How EV range is calculated</h2>
+      <p>Every battery stores energy, measured in watt-hours (Wh). Every vehicle uses a certain amount of that energy for each kilometre. Range is just one divided by the other:</p>
+      <p class="g-formula">Range (km) = Voltage × Ah × usable share ÷ Wh per km<span>Usable share: about 90% for lithium-ion, 95% for LFP, 50% for lead-acid (to protect its life).</span></p>
+      <p>The battery label gives you voltage and Ah. The hard part is the Wh per km, because it depends on the vehicle, the load, your speed and the roads. EV Studio uses figures from real-world tests and owner reports instead of brochure claims.</p>
+
+      <h2>Typical energy use by vehicle</h2>
+      <div class="g-table-wrap">
+        <table class="g-table">
+          <thead><tr><th scope="col">Vehicle</th><th scope="col">Typical use</th><th scope="col">Real-world spread</th></tr></thead>
+          <tbody>
+            <tr><td>E-cycle</td><td>9 Wh/km</td><td>5–15 Wh/km</td></tr>
+            <tr><td>Electric scooter</td><td>33 Wh/km</td><td>25–50 Wh/km</td></tr>
+            <tr><td>Electric motorcycle</td><td>40 Wh/km</td><td>30–55 Wh/km</td></tr>
+            <tr><td>E-rickshaw</td><td>31 Wh/km</td><td>18–45 Wh/km</td></tr>
+            <tr><td>Electric car (hatchback)</td><td>128 Wh/km</td><td>123–137 Wh/km</td></tr>
+            <tr><td>Electric SUV</td><td>150 Wh/km</td><td>119–187 Wh/km</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Sources: Autocar India real-world EV tests, Team-BHP owner reports, TERI and published e-rickshaw studies. The full list is inside the app.</p>
+
+      <h2>Worked examples</h2>
+      <h3>60V 50Ah lithium scooter</h3>
+      <p>60 × 50 = 3,000 Wh. Usable: 3,000 × 0.9 = 2,700 Wh. Range: 2,700 ÷ 33 ≈ <b>82 km</b> on a typical day, roughly 54–108 km depending on load and riding.</p>
+      <h3>48V 100Ah lead-acid e-rickshaw</h3>
+      <p>48 × 100 = 4,800 Wh, but only about half is used per cycle: 2,400 Wh. Range: 2,400 ÷ 31 ≈ <b>77 km</b>.</p>
+      <h3>30 kWh electric car</h3>
+      <p>30,000 × 0.9 = 27,000 Wh. Range: 27,000 ÷ 128 ≈ <b>211 km</b> in real-world mixed driving.</p>
+
+      <h2>Charging cost per km in India</h2>
+      <p>You pay for the electricity drawn from the wall, which is about 15% more than what reaches a lithium battery (closer to 28% for lead-acid). So:</p>
+      <p class="g-formula">Cost per km = Wh per km ÷ charging efficiency ÷ 1000 × ₹ per unit<span>One unit on your electricity bill = 1 kWh.</span></p>
+      <div class="g-table-wrap">
+        <table class="g-table">
+          <thead><tr><th scope="col">At ₹7 per unit</th><th scope="col">Electric</th><th scope="col">Petrol equivalent</th></tr></thead>
+          <tbody>
+            <tr><td>Scooter</td><td>≈ ₹0.27 / km</td><td>≈ ₹2.42 / km (45 km/L)</td></tr>
+            <tr><td>E-rickshaw (lead-acid)</td><td>≈ ₹0.30 / km</td><td>—</td></tr>
+            <tr><td>Hatchback car</td><td>≈ ₹1.05 / km</td><td>≈ ₹6.05 / km (18 km/L)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Petrol at ₹108.97 per litre (Raipur, October 2026). In the calculator you can enter your own electricity rate, petrol price and daily kilometres to see your monthly saving.</p>
+
+      <h2>How long charging takes</h2>
+      <p>Lithium batteries charge at full current until about 85–95% full, then the charger slows down to top them off safely. For a rough estimate, divide the battery's Ah by your charger's amps, then add a little for the slow finish. A 50Ah pack on a 10A charger reaches about 95% in 5 hours and full in about 5.5. Lead-acid batteries take longer: around Ah × 1.2 ÷ amps to reach 90%, then about 3 more hours to finish.</p>
+
+      <h2>Planning a battery pack</h2>
+      <p>Building or upgrading a pack? EV Studio's pack builder takes your target voltage and Ah and works out how many cells you need in series and parallel, using real datasheets for Samsung 25R, 35E and 50E, LFP 32700, and EVE LF105 and LF280K cells. It shows the pack's full and empty voltage, safe current, power and approximate weight.</p>
+
+      <section class="g-cta">
+        <h2>Try it with your own battery</h2>
+        <p>Free, no sign-up, nothing leaves your device. Tap any result to see the formula with your numbers in it.</p>
+        <a href="https://kunalurkude.github.io/battery/" class="btn btn--lg">Open EV Studio</a>
+      </section>
+
+      <h2>Common questions</h2>
+      <div class="g-faq">
+        <details><summary>Why is my real range lower than the company's claim?</summary><p>Company figures come from slow, gentle test cycles. Real roads add speed, weight, hills, traffic and heat or cold. The calculator gives a range band rather than a single number for this reason.</p></details>
+        <details><summary>Is 1 unit of electricity the same as 1 kWh?</summary><p>Yes. Your electricity bill counts in units, and one unit is one kilowatt-hour.</p></details>
+        <details><summary>Should I use lithium or lead-acid for an e-rickshaw?</summary><p>Lead-acid is cheaper upfront, but you can only use about half its capacity and it wastes more energy while charging. Lithium (especially LFP) gives more range from the same rated capacity and lasts many more cycles.</p></details>
+        <details><summary>Does the calculator work for electric cars?</summary><p>Yes. For cars you enter the battery in kWh and the charger in kW instead of volts and amps.</p></details>
+      </div>
+
+      <h2>More from Flashfuse</h2>
+      <div class="g-related">
+        <a class="btn btn--ghost btn--sm" href="https://evrex.in/studio/">EV Studio Pro for engineers</a>
+        <a class="btn btn--ghost btn--sm" href="../marks-counter/">Marks counter for teachers</a>
+        <a class="btn btn--ghost btn--sm" href="../">All apps</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__base"><p class="muted">© 2026 <a href="../">Flashfuse Labs</a>. Built by Kunal Urkude.</p></div>
+  </footer>
+</body>
+</html>

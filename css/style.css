@@ -291,6 +291,7 @@ button, .btn { -webkit-user-select: none; user-select: none; }
 .features b { font-weight: 750; }
 .product__foot { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; margin-top: .6rem; }
 .platforms { font-size: .9rem; font-weight: 600; color: var(--muted); }
+.more-link { font-size: .95rem; font-weight: 700; color: var(--red-ink); text-underline-offset: 3px; }
 
 /* ---------- Why (bento) ---------- */
 .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
@@ -393,7 +394,7 @@ thead .compare__us { background: var(--yellow); color: #131316 !important; }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 2px solid var(--edge); padding-block: 3rem calc(1.5rem + env(safe-area-inset-bottom)); }
-.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
+.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1.3fr 1fr 1fr; gap: 2rem; }
 .footer__grid > div { display: grid; gap: .55rem; align-content: start; }
 .footer h4 { font-size: .95rem; font-stretch: 110%; margin-bottom: .3rem; }
 .footer a:not(.brand) { color: var(--muted); text-decoration: none; font-weight: 550; }

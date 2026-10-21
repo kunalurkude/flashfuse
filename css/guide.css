@@ -1,0 +1,30 @@
+/* Guide pages (EV range calculator, marks counter). Uses the tokens from style.css. */
+.g-nav { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.g-nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; }
+.g-crumbs { font-size: .9rem; color: var(--muted); margin-top: 2.5rem; }
+.g-crumbs a { color: var(--muted); }
+.g-hero { padding-block: 1.2rem clamp(2.5rem, 6vw, 4rem); display: grid; gap: 1.1rem; max-width: 50rem; }
+.g-hero h1 { font-size: clamp(2.3rem, 6vw, 4rem); font-stretch: 122%; }
+.g-hero .btn, .g-hero .tag { justify-self: start; }
+.g-body { max-width: 46rem; padding-bottom: clamp(4rem, 9vw, 6rem); }
+.g-body h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-stretch: 120%; margin: 3rem 0 .9rem; }
+.g-body h3 { font-size: 1.2rem; font-stretch: 112%; margin: 1.8rem 0 .5rem; }
+.g-body p, .g-body li { color: color-mix(in srgb, var(--ink) 88%, var(--muted)); }
+.g-body p + p { margin-top: .9rem; }
+.g-body ul, .g-body ol { padding-left: 1.25rem; display: grid; gap: .4rem; margin: .8rem 0; }
+.g-body a:not(.btn) { color: var(--red-ink); font-weight: 650; }
+.g-formula { display: flow-root; overflow: hidden; margin: 1.2rem 0; padding: 1rem 1.2rem; border: 2px solid var(--edge); border-radius: var(--r); background: var(--surface); box-shadow: var(--shadow); font-weight: 700; font-stretch: 105%; }
+.g-formula span { display: block; font-weight: 500; color: var(--muted); font-size: .92rem; margin-top: .25rem; }
+.g-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .97rem; }
+.g-table th, .g-table td { text-align: left; padding: .65rem .6rem; border-bottom: 1px solid var(--line); }
+.g-table th { font-weight: 750; }
+.g-table-wrap { overflow-x: auto; clear: both; }
+.g-shot { float: right; width: min(220px, 42%); margin: 0 0 1rem 1.5rem; border: 2px solid var(--edge); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; }
+.g-cta { margin-top: 3rem; padding: clamp(1.5rem, 4vw, 2.2rem); border: 2px solid var(--edge); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-lg); display: grid; gap: .9rem; }
+.g-cta h2 { margin: 0; }
+.g-cta .btn { justify-self: start; }
+.g-faq details { border-bottom: 1px solid var(--line); padding: .9rem 0; }
+.g-faq summary { cursor: pointer; font-weight: 750; }
+.g-faq details p { margin-top: .5rem; }
+.g-related { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+@media (max-width: 560px) { .g-shot { float: none; width: 60%; margin: 1rem auto; } }
