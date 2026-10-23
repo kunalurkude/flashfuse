@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Flashfuse Labs</title>
-  <meta name="description" content="Flashfuse Labs makes free web apps: EV Studio, an EV range, charging cost and battery pack calculator for India, and Tally Pro, a marks counter for teachers. No sign-up, works on any phone." />
+  <meta name="description" content="Flashfuse Labs makes free web apps: EV Studio, an EV range, charging cost and battery pack calculator for India, Tally Pro, a marks counter for teachers, and nue, a news app with stock analysis. No sign-up, works on any phone." />
   <meta name="author" content="Kunal Urkude" />
   <link rel="canonical" href="https://kunalurkude.github.io/flashfuse/" />
   <meta name="theme-color" content="#F4F4F5" media="(prefers-color-scheme: light)" />
@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
 
   <!-- Apply saved theme before paint so there's no flash -->
   <script>
@@ -48,11 +48,12 @@
       { "@type": "SoftwareApplication", "name": "Tally Pro", "url": "https://kunalurkude.github.io/tallymarks/", "applicationCategory": "EducationalApplication", "operatingSystem": "Any (web browser)", "description": "Free marks counter for teachers that totals a stack of exam papers.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "publisher": { "@id": "https://kunalurkude.github.io/flashfuse/#org" } },
       { "@type": "SoftwareApplication", "name": "EV Studio", "url": "https://kunalurkude.github.io/battery/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Free EV range, charging cost, charge time and battery pack calculator.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "publisher": { "@id": "https://kunalurkude.github.io/flashfuse/#org" } },
       { "@type": "SoftwareApplication", "name": "EV Studio Pro", "url": "https://evrex.in/studio/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "description": "Advanced EV battery performance suite with real-world range and a 30+ cell library.", "publisher": { "@id": "https://kunalurkude.github.io/flashfuse/#org" } },
+      { "@type": "SoftwareApplication", "name": "nue", "url": "https://kunalurkude.github.io/nue/", "applicationCategory": "NewsApplication", "operatingSystem": "Any (web browser)", "description": "Free personalised news app for India with a stock watchlist and technical analysis.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "publisher": { "@id": "https://kunalurkude.github.io/flashfuse/#org" } },
       { "@type": "FAQPage", "mainEntity": [
         { "@type": "Question", "name": "Are the apps really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. There's no trial, no paid tier and no ads. We make money building custom apps for businesses, not from you." } },
         { "@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "Nowhere but your device. The apps don't send what you type to any server, and there are no accounts, ads or trackers." } },
         { "@type": "Question", "name": "How do I install an app on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Open the app, then use your browser menu. On Android Chrome tap ⋮ → Install app. On iPhone Safari tap Share → Add to Home Screen." } },
-        { "@type": "Question", "name": "Do they work without internet?", "acceptedAnswer": { "@type": "Answer", "text": "Tally Pro installs as an app and keeps working offline. The EV tools need a connection to load, then every calculation runs on your device." } },
+        { "@type": "Question", "name": "Do they work without internet?", "acceptedAnswer": { "@type": "Answer", "text": "Tally Pro installs as an app and keeps working offline. nue needs a connection for fresh news and prices. The EV tools need a connection to load, then every calculation runs on your device." } },
         { "@type": "Question", "name": "Can you build an app like this for my business?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tell us what you want to calculate, track or configure and we'll reply with an idea, a timeline and a quote." } }
       ] }
     ]
@@ -123,7 +124,7 @@
     <section class="hero" id="top">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="pill"><span class="pill__dot"></span> 3 apps live · free to use</p>
+          <p class="pill"><span class="pill__dot"></span> 4 apps live · free to use</p>
           <h1 class="hero__title">Small web apps<br />that <span class="flash">just work.</span></h1>
           <p class="hero__lede">Flashfuse Labs builds fast, focused Progressive Web Apps. Open one in your browser and start. No sign-up, no ads, and nothing you type ever leaves your device.</p>
           <div class="hero__ctas">
@@ -165,7 +166,7 @@
         <div><strong>0</strong><span>sign-ups needed</span></div>
         <div><strong>0</strong><span>ads, ever</span></div>
         <div><strong>100%</strong><span>runs on your device</span></div>
-        <div><strong>3</strong><span>apps live today</span></div>
+        <div><strong>4</strong><span>apps live today</span></div>
       </div>
     </section>
 
@@ -179,6 +180,7 @@
             <a href="#app-tally" class="suite-nav__item"><span class="tag tag--violet">Education</span> Tally Pro</a>
             <a href="#app-evstudio" class="suite-nav__item"><span class="tag tag--green">EV tools</span> EV Studio</a>
             <a href="#app-evpro" class="suite-nav__item"><span class="tag tag--blue">EV tools · Pro</span> EV Studio Pro</a>
+            <a href="#app-nue" class="suite-nav__item"><span class="tag tag--orange">News &amp; markets</span> nue</a>
           </nav>
         </div>
 
@@ -255,6 +257,31 @@
               <div class="shot__bar"><i></i><i></i><i></i><span>Pack builder</span></div>
               <img src="assets/shots/evpro-pack.webp" alt="EV Studio Pro pack builder: 72V 41.6Ah, 16.56 kg, 2.995 kWh, with live cell matrix" width="784" height="725" loading="lazy" />
             </figure>
+          </div>
+        </article>
+        <!-- nue -->
+        <article class="product product--flip" id="app-nue">
+          <div class="product__media">
+            <div class="halo halo--orange"></div>
+            <figure class="shot shot--browser shot--card">
+              <div class="shot__bar"><i></i><i></i><i></i><span>kunalurkude.github.io/nue</span></div>
+              <img src="assets/shots/nue-card.webp" alt="nue: news that follows your interests, India first, with stock analysis" width="1200" height="630" loading="lazy" />
+            </figure>
+          </div>
+          <div class="product__body">
+            <span class="tag tag--orange">For news readers &amp; investors · PWA</span>
+            <h3 class="h3">nue</h3>
+            <p class="product__pitch">Your daily news, built around the topics you follow, with a stock watchlist and technical analysis in the same app.</p>
+            <ul class="features">
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Your topics, one feed.</b> Follow up to 12 interests. Stories are merged newest first, with duplicates removed.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>India first.</b> Pick an India, US, UK or Australia edition, and a 24-hour, 3-day or 7-day window.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>Stock watchlist.</b> NSE, BSE and US shares with price charts, RSI, MACD, support and resistance.</span></li>
+              <li><svg class="ico"><use href="#i-check"/></svg><span><b>A plain-words read.</b> Bullish to bearish, with every signal behind it explained. Not investment advice.</span></li>
+            </ul>
+            <div class="product__foot">
+              <a href="https://kunalurkude.github.io/nue/" target="_blank" rel="noopener" class="btn">Open nue <svg class="ico"><use href="#i-out"/></svg></a>
+              <span class="platforms">Phone · Tablet · Desktop · Installable</span>
+            </div>
           </div>
         </article>
       </div>
@@ -418,7 +445,7 @@
           </details>
           <details>
             <summary>Do they work without internet?</summary>
-            <p>Tally Pro installs as an app and keeps working offline. The EV tools need a connection to load, then every calculation runs on your device.</p>
+            <p>Tally Pro installs as an app and keeps working offline. nue needs a connection for fresh news and prices. The EV tools need a connection to load, then every calculation runs on your device.</p>
           </details>
           <details>
             <summary>Can you build an app like this for my business?</summary>
@@ -475,6 +502,7 @@
         <a href="https://kunalurkude.github.io/tallymarks/" target="_blank" rel="noopener">Tally Pro</a>
         <a href="https://kunalurkude.github.io/battery/" target="_blank" rel="noopener">EV Studio</a>
         <a href="https://evrex.in/studio/" target="_blank" rel="noopener">EV Studio Pro</a>
+        <a href="https://kunalurkude.github.io/nue/" target="_blank" rel="noopener">nue</a>
       </div>
       <div>
         <h4>Guides</h4>
